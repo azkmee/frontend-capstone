@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CharacterProvider } from './service/fetchHarryPotter';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CharacterProvider>
+      <App />
+    </CharacterProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

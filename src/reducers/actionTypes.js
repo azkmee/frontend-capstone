@@ -1,0 +1,9 @@
+
+//action type
+
+export const actionTypes = {
+    GET_CHARACTER: 'GET_CHARACTER',
+    GET_CHARACTER_SUCCESS:'GET_CHARACTER_SUCCESS',
+    GET_CHARACTER_ERROR : 'GET_CHARACTER_ERROR'
+
+}
