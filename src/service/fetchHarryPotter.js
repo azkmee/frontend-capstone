@@ -1,5 +1,4 @@
 import { createContext, useContext } from "react"
-import { fetchAPI } from "../lib/fetchAPI"
 import { useCharacterState } from "../reducers/charactersAction"
 
 const BASE_URL = 'https://hp-api.herokuapp.com/api/characters'
