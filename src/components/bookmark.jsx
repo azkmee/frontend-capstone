@@ -11,11 +11,11 @@ export const Bookmarked = ({state, ...rest}) => {
         </svg>
 
     return(
-        <div {...rest}>
+        <button {...rest}>
             {state ? 
             bookmarkedSVG:
             notBookmarkedSVG}
-        </div>
+        </button>
         
     )
 }

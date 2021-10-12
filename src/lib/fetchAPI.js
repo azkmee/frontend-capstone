@@ -25,7 +25,6 @@ export const fetchAPI = async ({
     return fetch(url)
     .then(res => {
         const r = res.json()
-        console.log(r)
         return r})
     .catch(err=>{
         throw err;

@@ -24,7 +24,11 @@ export const useFetchCharacters = () => {
     const { getCharacterSuccess , getCharacterError} = useContext(CharacterContext)
     return function invokeFetchCharacters(){
         return fetchCharacters()
-            .then(res => getCharacterSuccess(res))
+            .then(res => {
+                const toSave = res.filter(character => {
+                    return character.image != ""
+                })
+                getCharacterSuccess(toSave)})
             .catch(res => getCharacterError(res))
     }
 }

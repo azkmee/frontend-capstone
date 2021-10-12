@@ -5,8 +5,10 @@ import { Bookmarked } from './bookmark'
 
 
 export const Detail = ({
-    imageUrl,
-    toShow,
+    props,
+    handleClose,
+    handleBookmark,
+    bookmarked,
 }) => {
 
     const mapLabel = {
@@ -23,25 +25,27 @@ export const Detail = ({
         "actor": "Actor",
     }
 
+    const { image, ...toShow } = props
+
     return (
         <div className='grid grid-cols-2 gap-3 bg-gray-300 p-4'>
             <div className='relative h-2/3'>
-                <img className='w-full overflow-hidden' src={imageUrl}/>
+                <img className='w-full overflow-hidden' src={image}/>
             </div>
             <div className='relative'>
-                <Bookmarked className='float-right' state={true}/>
+                <Bookmarked onClick = {()=>handleBookmark(toShow.name)} className='float-right' state={bookmarked}/>
                 <div className='text-center'>
                     {Object.keys(toShow).map( (key, index)=> {
-                        console.log(key, index)
                         return(
                             <TextField
+                                key={index}
                                 label={mapLabel[key]}
                                 title={toShow[key]}/>)
                     })
                     }
                 </div>
                 <div className='absolute bottom-0 w-full text-center inline-block'>
-                    <Button className='w-2/5'>Back</Button>
+                    <Button onClick={handleClose} className='w-2/5'>Back</Button>
                 </div>
             </div>
 
