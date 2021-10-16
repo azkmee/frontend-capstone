@@ -19,6 +19,7 @@ export const CharacterProvider = ({children}) => {
     )
 }
 
+//hook to fetch all characters
 export const useFetchCharacters = () => {
     const { getCharacterSuccess , getCharacterError} = useContext(CharacterContext)
     return function invokeFetchCharacters(){

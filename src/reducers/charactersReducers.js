@@ -19,7 +19,6 @@ export const characterReducers = (state, event) => {
                 characters: null
             }
 
-
         default:
             throw new Error('invalid Reducer event')
     }

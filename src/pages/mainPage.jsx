@@ -32,7 +32,6 @@ export const MainPage = ({
             if(to>characters.data.length){
                 setIsNext(false)
             } else {setIsNext(true)}
-
         }
     }, [characters, currentPage])
 
@@ -65,49 +64,50 @@ export const MainPage = ({
 
     return(
         <div className='h-full'>
-            
-        { modalOpen ? 
-            <Modal>
-                <Detail 
+                
+            {/* activate when a character is selected */}
+            { modalOpen ? 
+                <Modal>
+                    <Detail 
                         props={detailCharacter} 
                         handleClose = {handleModalClose}
                         handleBookmark={handleBookmark}
                         bookmarked = {bookmarks.includes(detailCharacter?.name)}
                         />
-            </Modal>: null}
-        <div className = 'grid grid-cols-3 gap-4 p-4'>
-            {currentCharacters ? (
-                currentCharacters.map(character => {
-                    return(
-                    <CharacterBox 
-                        image={character.image}
-                        name={character.name}
-                        actor = {character.actor}
-                        bookmarked = {bookmarks.includes(character.name)}
-                        rest = {character}
-                        clickDetail = {handleDetailClick}
-                        key={character.name}
-                        handleBookmark={handleBookmark}
-                        />
-                )})
-            ):null}
+                </Modal>: null}
 
-        </div>
-        <div className='justify-content inline-flex w-full my-10'>
-            <div className='w-1/2 text-center'>
-                {currentPage>0?
-                    <Button onClick={()=>{setCurrentPage(currentPage-1)}}>
-                        Previous
-                    </Button> : null}
+            <div className = 'grid grid-cols-3 gap-4 p-4'>
+                {currentCharacters ? (
+                    currentCharacters.map(character => {
+                        return(
+                            <CharacterBox 
+                                image={character.image}
+                                name={character.name}
+                                actor = {character.actor}
+                                bookmarked = {bookmarks.includes(character.name)}
+                                rest = {character}
+                                clickDetail = {handleDetailClick}
+                                key={character.name}
+                                handleBookmark={handleBookmark}
+                                />
+                    )})
+                ):null}
             </div>
-            <div className='w-1/2 text-center'>
-                {isNext ? 
-                    <Button onClick={()=>{setCurrentPage(currentPage+1)}}>
-                        Next
-                    </Button>:null
-                }
+            <div className='justify-content inline-flex w-full my-10'>
+                <div className='w-1/2 text-center'>
+                    {currentPage>0?
+                        <Button onClick={()=>{setCurrentPage(currentPage-1)}}>
+                            Previous
+                        </Button> : null}
+                </div>
+                <div className='w-1/2 text-center'>
+                    {isNext ? 
+                        <Button onClick={()=>{setCurrentPage(currentPage+1)}}>
+                            Next
+                        </Button>:null
+                    }
+                </div>
             </div>
-        </div>
 
 
         </div>
