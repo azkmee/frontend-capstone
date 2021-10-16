@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import ReactModal from 'react-modal';
 import { CharacterBox } from '../components/characterBox';
 import { Detail } from '../components/Detail';
 import { CharacterContext, useFetchCharacters } from '../service/fetchHarryPotter';
