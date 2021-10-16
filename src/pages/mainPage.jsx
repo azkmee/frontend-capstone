@@ -52,7 +52,6 @@ export const MainPage = ({...props}) => {
     }
 
     const handleBookmark = (name) => {
-        console.log(typeof bookmarks, bookmarks)
         if (bookmarks?.includes(name)){
             setBookmarks(bookmarks.filter(bookmark => bookmark != name))
         } else {
