@@ -70,7 +70,7 @@ export const MainPage = ({...props}) => {
                         props={detailCharacter} 
                         handleClose = {handleModalClose}
                         handleBookmark={handleBookmark}
-                        bookmarked = {bookmarks.includes(detailCharacter?.name)}
+                        bookmarked = {bookmarks?.includes(detailCharacter?.name)}
                         />
                 </Modal>: null}
 
