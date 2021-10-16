@@ -4,6 +4,7 @@ import { CharacterBox } from '../components/characterBox';
 import { Detail } from '../components/Detail';
 import { CharacterContext, useFetchCharacters } from '../service/fetchHarryPotter';
 import { Button } from '../components/button'
+import { Modal } from '../components/modal';
 
 export const MainPage = ({
 
@@ -63,7 +64,17 @@ export const MainPage = ({
     }, [bookmarks])
 
     return(
-        <>
+        <div className='h-full'>
+            
+        { modalOpen ? 
+            <Modal>
+                <Detail 
+                        props={detailCharacter} 
+                        handleClose = {handleModalClose}
+                        handleBookmark={handleBookmark}
+                        bookmarked = {bookmarks.includes(detailCharacter?.name)}
+                        />
+            </Modal>: null}
         <div className = 'grid grid-cols-3 gap-4 p-4'>
             {currentCharacters ? (
                 currentCharacters.map(character => {
@@ -81,16 +92,6 @@ export const MainPage = ({
                 )})
             ):null}
 
-            <ReactModal
-                isOpen={modalOpen}
-                contentlabel='Example'>
-                    <Detail 
-                        props={detailCharacter} 
-                        handleClose = {handleModalClose}
-                        handleBookmark={handleBookmark}
-                        bookmarked = {bookmarks.includes(detailCharacter?.name)}
-                        />
-            </ReactModal>
         </div>
         <div className='justify-content inline-flex w-full my-10'>
             <div className='w-1/2 text-center'>
@@ -107,7 +108,9 @@ export const MainPage = ({
                 }
             </div>
         </div>
-        </>
+
+
+        </div>
     )
 }
 
