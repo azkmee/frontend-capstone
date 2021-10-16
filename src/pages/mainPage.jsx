@@ -29,6 +29,7 @@ export const MainPage = ({...props}) => {
             if(to>characters.data.length){
                 setIsNext(false)
             } else {setIsNext(true)}
+            window.scrollTo(0, 0)
         }
     }, [characters, currentPage])
 
