@@ -26,7 +26,7 @@ export const useFetchCharacters = () => {
         return fetchCharacters()
             .then(res => {
                 const toSave = res.filter(character => {
-                    return character.image != ""
+                    return character.image !== ""
                 })
                 getCharacterSuccess(toSave)})
             .catch(res => getCharacterError(res))

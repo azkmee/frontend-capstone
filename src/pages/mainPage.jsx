@@ -5,9 +5,7 @@ import { CharacterContext, useFetchCharacters } from '../service/fetchHarryPotte
 import { Button } from '../components/button'
 import { Modal } from '../components/modal';
 
-export const MainPage = ({
-
-}) => {
+export const MainPage = ({...props}) => {
     const { characters } = useContext(CharacterContext)
     const perPage = 12;
     const [currentPage, setCurrentPage ] = useState(0)
@@ -50,7 +48,7 @@ export const MainPage = ({
     }
 
     const handleBookmark = (name) => {
-        if (bookmarks.includes(name)){
+        if (bookmarks?.includes(name)){
             setBookmarks(bookmarks.filter(bookmark => bookmark != name))
         } else {
             setBookmarks([...bookmarks, name])
@@ -83,7 +81,7 @@ export const MainPage = ({
                                 image={character.image}
                                 name={character.name}
                                 actor = {character.actor}
-                                bookmarked = {bookmarks.includes(character.name)}
+                                bookmarked = {bookmarks?.includes(character.name)}
                                 rest = {character}
                                 clickDetail = {handleDetailClick}
                                 key={character.name}

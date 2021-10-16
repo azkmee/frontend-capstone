@@ -1,6 +1,5 @@
-import React, { useReducer } from "react"
+import { useReducer } from "react"
 import { actionTypes as action, actionTypes } from "./actionTypes"
-import { keywords } from './keywords'
 import { characterReducers, defaultState } from "./charactersReducers"
 
 

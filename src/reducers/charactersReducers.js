@@ -1,5 +1,4 @@
-import { actionTypes as action, actionTypes } from "./actionTypes"
-import { keywords } from './keywords'
+import { actionTypes as action } from "./actionTypes"
 
 export const defaultState = {
     characters:null
@@ -8,12 +7,12 @@ export const defaultState = {
 
 export const characterReducers = (state, event) => {
     switch (event.type) {
-        case actionTypes.GET_CHARACTER_SUCCESS:
+        case action.GET_CHARACTER_SUCCESS:
             return {
                 ...state,
                 characters:event.payload
             }
-        case actionTypes.GET_CHARACTER_ERROR:
+        case action.GET_CHARACTER_ERROR:
             return {
                 ...state,
                 characters: null
