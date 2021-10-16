@@ -18,7 +18,10 @@ export const MainPage = ({...props}) => {
 
     useEffect( () => {
         fetchCharacters()
-        setBookmarks(JSON.parse(localStorage.getItem("bookmark")))
+        const checkStorage = JSON.parse(localStorage.getItem("bookmark"))
+        if(checkStorage){
+            setBookmarks(checkStorage)
+        }
     }, [])
 
     useEffect( () => {
